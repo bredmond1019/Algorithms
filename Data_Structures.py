@@ -6,6 +6,9 @@ Stack is First In, Last Out
 """
 
 
+from collections import deque
+
+
 class Stack:
 
     def __init__(self):
@@ -73,3 +76,74 @@ class Queue:
 
 q = Queue()
 print(q.front())
+
+
+class Deque:
+
+    def __init__(self):
+        self.deque = []
+        self.len = 0
+
+    def empty(self):
+        if self.len == 0:
+            return True
+        return False
+
+    def push_front(self, e):
+        self.deque.insert(0, e)
+        self.len += 1
+
+    def push_back(self, e):
+        self.deque.insert(self.len, e)
+        self.len += 1
+
+    def pop_front(self):
+        if not self.empty():
+            self.deque.pop(0)
+            self.len -= 1
+
+    def pop_back(self):
+        if not self.empty():
+            self.deque.pop(self.len - 1)
+            self.len -= 1
+
+
+d = deque()
+d.append(1)  # adiciona do lado direito
+d.appendleft(2)  # adiciona do lado esquerdo
+d.append(3)
+d.append(4)
+
+# 4, 2, 1, 3
+
+d.pop()  # remove do lado direito
+d.popleft()  # remove do lado esquerdo
+
+d.remove(num)  # remove o numero
+
+
+""" 
+
+Linked List
+
+
+"""
+
+
+class Node:
+
+    def __init__(self, label):
+        self.label = label
+        self.next = None
+
+    def get_label(self):
+        return self.label
+
+    def set_label(self, label):
+        self.label = label
+
+    def get_next(self):
+        return self.next
+
+    def set_next(self, next):
+        self.next = next
